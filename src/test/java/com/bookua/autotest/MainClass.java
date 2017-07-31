@@ -37,26 +37,26 @@ public class MainClass {
         webDriver.get("http://books.ua");
     }
 
-    /*    @Test
-        public void searchTest() {
-            System.out.println("Start testing: Test#1");
-            mainPage.searchOnWebSite("Хокинг Стивен");
-            mainPage.clickOnSearchField();
-        }
+    @Test
+    public void searchTest() {
+        System.out.println("Start testing: Test#1");
+        mainPage.searchOnWebSite("Хокинг Стивен");
+        mainPage.clickOnSearchField();
+    }
 
-        @Test
-        public void mainElemensCheckTest() {
-            mainPage.mainLink.click();
-            mainPage.aboutAsLink.click();
-            mainPage.DeliveryAndPaymentLink.click();
-            mainPage.discontLink.click();
-            mainPage.stockLink.click();
-            mainPage.newsLink.click();
-            mainPage.contactsLink.click();
+    @Test
+    public void mainElemensCheckTest() {
+        mainPage.mainLink.click();
+        mainPage.aboutAsLink.click();
+        mainPage.DeliveryAndPaymentLink.click();
+        mainPage.discontLink.click();
+        mainPage.stockLink.click();
+        mainPage.newsLink.click();
+        mainPage.contactsLink.click();
 
-        }
-    */
-/*    @Test
+    }
+
+    @Test
     public void authorizationTestPositive() {
         //      webDriver.findElement(By.cssSelector("#header > div.header_top > " +
         //             "div > div > div:nth-child(2) > div > ul > li:nth-child(4) > span > a")).click();
@@ -69,7 +69,7 @@ public class MainClass {
         if (loginPage.personalCabinetLink.isEnabled()) {
             System.out.println("Test: Login is successfully passed");
         } else System.out.println("Test: Login is failed");
-    }*/
+    }
 
     @Test
     public void authorizationTestNegative() {
@@ -86,13 +86,10 @@ public class MainClass {
         } else System.out.println("Test: Negative Authorization Test is Failed");
     }
 
-/*
+
     @After
     public void shutdown() {
         webDriver.close();
     }
-*/
-
-
 }
 
