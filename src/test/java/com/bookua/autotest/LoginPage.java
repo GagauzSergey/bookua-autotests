@@ -13,7 +13,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class LoginPage {
     private WebDriver webDriver;
     private WebDriverWait webDriverWait;
-    GeneralInfo generalInfo;
     WebElement searchTextOnPage;
     String searchTextOnPageVerify;
 
