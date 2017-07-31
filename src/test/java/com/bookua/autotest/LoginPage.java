@@ -58,7 +58,7 @@ public class LoginPage {
     public void searchText(String string) {
         WebElement s = searchTextOnPage.findElement(By.tagName(string));
         if (s.isEnabled()) {
-            System.out.println("Test: Login is successfully pass");
-        } else System.out.println("Test: Login is fail");
+            System.out.println("Text search is successful for: "+ string);
+        } else System.out.println("Text search is failed for: "+ string);
     }
 }
