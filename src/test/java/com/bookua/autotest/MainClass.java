@@ -25,7 +25,6 @@ public class MainClass {
     WebDriver webDriver;
     MainPage mainPage;
     LoginPage loginPage;
-    GeneralInfo generalInfo;
 
     @Before
     public void installation() {
