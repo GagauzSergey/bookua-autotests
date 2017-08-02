@@ -25,6 +25,7 @@ public class MainClass {
     WebDriver webDriver;
     MainPage mainPage;
     LoginPage loginPage;
+    Catalog catalog;
 
     @Before
     public void installation() {
@@ -33,58 +34,63 @@ public class MainClass {
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30, 500);
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
+        catalog = new Catalog(webDriver);
         webDriver.get("http://books.ua");
     }
 
-    @Test
-    public void searchTest() {
-        System.out.println("Start testing: Test#1");
-        mainPage.searchOnWebSite("Хокинг Стивен");
-        mainPage.clickOnSearchField();
-    }
+     @Test
+     public void searchTest() {
+         System.out.println("Start testing: Test#1");
+         mainPage.searchOnWebSite("Хокинг Стивен");
+         mainPage.clickOnSearchField();
+     }
+
+     @Test
+     public void mainElemensCheckTest() {
+         mainPage.mainLink.click();
+         mainPage.aboutAsLink.click();
+         mainPage.DeliveryAndPaymentLink.click();
+         mainPage.discontLink.click();
+         mainPage.stockLink.click();
+         mainPage.newsLink.click();
+         mainPage.contactsLink.click();
+
+     }
+
+     @Test
+     public void authorizationTestPositive() {
+         //      webDriver.findElement(By.cssSelector("#header > div.header_top > " +
+         //             "div > div > div:nth-child(2) > div > ul > li:nth-child(4) > span > a")).click();
+         loginPage.enterLogin.click();
+         loginPage.emailLogin.click();
+         loginPage.emailLogin.sendKeys("gagauzgeneral@gmail.com");
+         loginPage.passwordLogin.click();
+         loginPage.passwordLogin.sendKeys("asd12345");
+         loginPage.enterAuthorButton.submit();
+         if (loginPage.personalCabinetLink.isEnabled()) {
+             System.out.println("Test: Login is successfully passed");
+         } else System.out.println("Test: Login is failed");
+     }
+
+     @Test
+     public void authorizationTestNegative() {
+         //      webDriver.findElement(By.cssSelector("#header > div.header_top > " +
+         //             "div > div > div:nth-child(2) > div > ul > li:nth-child(4) > span > a")).click();
+         loginPage.enterLogin.click();
+         loginPage.emailLogin.click();
+         loginPage.emailLogin.sendKeys("gagauzgeneral@gmail.com");
+         loginPage.passwordLogin.click();
+         loginPage.passwordLogin.sendKeys("");
+         loginPage.enterAuthorButton.submit();
+         if (loginPage.passwordLogin.isEnabled()) {
+             System.out.println("Test: Negative Authorization Test is Passed");
+         } else System.out.println("Test: Negative Authorization Test is Failed");
+     }
 
     @Test
-    public void mainElemensCheckTest() {
-        mainPage.mainLink.click();
-        mainPage.aboutAsLink.click();
-        mainPage.DeliveryAndPaymentLink.click();
-        mainPage.discontLink.click();
-        mainPage.stockLink.click();
-        mainPage.newsLink.click();
-        mainPage.contactsLink.click();
-
+    public void checkCatalogueElementsTitleTest() {
+        catalog.checkCatalogueElementsTitle();
     }
-
-    @Test
-    public void authorizationTestPositive() {
-        //      webDriver.findElement(By.cssSelector("#header > div.header_top > " +
-        //             "div > div > div:nth-child(2) > div > ul > li:nth-child(4) > span > a")).click();
-        loginPage.enterLogin.click();
-        loginPage.emailLogin.click();
-        loginPage.emailLogin.sendKeys("gagauzgeneral@gmail.com");
-        loginPage.passwordLogin.click();
-        loginPage.passwordLogin.sendKeys("asd12345");
-        loginPage.enterAuthorButton.submit();
-        if (loginPage.personalCabinetLink.isEnabled()) {
-            System.out.println("Test: Login is successfully passed");
-        } else System.out.println("Test: Login is failed");
-    }
-
-    @Test
-    public void authorizationTestNegative() {
-        //      webDriver.findElement(By.cssSelector("#header > div.header_top > " +
-        //             "div > div > div:nth-child(2) > div > ul > li:nth-child(4) > span > a")).click();
-        loginPage.enterLogin.click();
-        loginPage.emailLogin.click();
-        loginPage.emailLogin.sendKeys("gagauzgeneral@gmail.com");
-        loginPage.passwordLogin.click();
-        loginPage.passwordLogin.sendKeys("");
-        loginPage.enterAuthorButton.submit();
-        if (loginPage.passwordLogin.isEnabled()) {
-            System.out.println("Test: Negative Authorization Test is Passed");
-        } else System.out.println("Test: Negative Authorization Test is Failed");
-    }
-
 
     @After
     public void shutdown() {
