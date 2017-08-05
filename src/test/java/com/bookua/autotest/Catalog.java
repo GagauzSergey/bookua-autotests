@@ -1,5 +1,4 @@
 package com.bookua.autotest;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,11 +9,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 
 /**
- * Created by user on 01.08.2017.
+ * @author Gagauz Sergey
+ * Created by @a on 01.08.2017.
  */
+
 public class Catalog {
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
+    WebDriver webDriver;
+    WebDriverWait webDriverWait;
 
 
     public Catalog(WebDriver driver) {
@@ -26,7 +27,7 @@ public class Catalog {
 //  Catalog elements
 
     @FindBy(css = "#accordian > div:nth-child(1) > div.panel-heading > p > a:nth-child(2)")
-    WebElement forKidsBooksLink; //Литература для детей и юношества
+    public WebElement forKidsBooksLink; //Литература для детей и юношества
 
     @FindBy(css = "#accordian > div:nth-child(2) > div.panel-heading > p > a:nth-child(2)")
     WebElement medicineBooksLink; //Литература для медицины

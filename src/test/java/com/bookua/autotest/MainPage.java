@@ -10,11 +10,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.util.ArrayList;
 
 /**
+ * @author Gagauz Sergey
  * Created by user on 26.07.2017.
  */
 public class MainPage {
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
+    WebDriver webDriver;
+    WebDriverWait webDriverWait;
 
     public MainPage(WebDriver driver) {
         webDriver = driver;

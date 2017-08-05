@@ -8,11 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
+ * @author Gagauz Sergey
  * Created by user on 29.07.2017.
  */
 public class LoginPage {
-    private WebDriver webDriver;
-    private WebDriverWait webDriverWait;
+    WebDriver webDriver;
+    WebDriverWait webDriverWait;
     WebElement searchTextOnPage;
     String searchTextOnPageVerify;
 

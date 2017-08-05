@@ -1,61 +1,40 @@
 package com.bookua.autotest;
-
-import org.apache.commons.lang3.builder.ToStringExclude;
 import org.junit.After;
-import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.WebDriver;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
 import org.junit.Before;
 import org.junit.Test;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.opera.OperaDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 
 /**
+ * @author Gagauz Sergey
  * Created by user on 26.07.2017.
  */
-public class MainClass {
+public class RegistrationTests {
     WebDriver webDriver;
     MainPage mainPage;
     LoginPage loginPage;
     Catalog catalog;
 
     @Before
-    public void installation() {
+    public void start (){
         webDriver = new ChromeDriver();
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30, 500);
+        webDriver.get("http://books.ua");
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
         catalog = new Catalog(webDriver);
-        webDriver.get("http://books.ua");
     }
 
-     @Test
+ @Test
      public void searchTest() {
          System.out.println("Start testing: Test#1");
          mainPage.searchOnWebSite("Хокинг Стивен");
          mainPage.clickOnSearchField();
      }
 
-     @Test
-     public void mainElemensCheckTest() {
-         mainPage.mainLink.click();
-         mainPage.aboutAsLink.click();
-         mainPage.DeliveryAndPaymentLink.click();
-         mainPage.discontLink.click();
-         mainPage.stockLink.click();
-         mainPage.newsLink.click();
-         mainPage.contactsLink.click();
-
-     }
 
      @Test
      public void authorizationTestPositive() {
@@ -86,11 +65,6 @@ public class MainClass {
              System.out.println("Test: Negative Authorization Test is Passed");
          } else System.out.println("Test: Negative Authorization Test is Failed");
      }
-
-    @Test
-    public void checkCatalogueElementsTitleTest() {
-        catalog.checkCatalogueElementsTitle();
-    }
 
     @After
     public void shutdown() {
