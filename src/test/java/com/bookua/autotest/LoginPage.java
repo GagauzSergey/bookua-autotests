@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author Gagauz Sergey
- * Created by user on 29.07.2017.
+ *         Created by user on 29.07.2017.
  */
 public class LoginPage {
     WebDriver webDriver;
@@ -49,16 +49,16 @@ public class LoginPage {
     @FindBy(css = "#form > div > div > div.col-md-8 > div > div:nth-child(3) > div > div > form > button")
     WebElement registerSignInButton;
 
-    @FindBy (css = "#header > div.header-middle > div > div > div:nth-child(1) > div > a > img")
+    @FindBy(css = "#header > div.header-middle > div > div > div:nth-child(1) > div > a > img")
     WebElement generalEmblem;
 
-    @FindBy (css = "#header > div.header_top > div > div > div:nth-child(2) > div > ul > li:nth-child(1) > span:nth-child(2) > a")
+    @FindBy(css = "#header > div.header_top > div > div > div:nth-child(2) > div > ul > li:nth-child(1) > span:nth-child(2) > a")
     WebElement personalCabinetLink;
 
     public void searchText(String string) {
         WebElement s = searchTextOnPage.findElement(By.tagName(string));
         if (s.isEnabled()) {
-            System.out.println("Text search is successful for: "+ string);
-        } else System.out.println("Text search is failed for: "+ string);
+            System.out.println("Text search is successful for: " + string);
+        } else System.out.println("Text search is failed for: " + string);
     }
 }

@@ -1,16 +1,19 @@
 package com.bookua.autotest;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 
 /**
  * @author Gagauz Sergey
- * Created by @a on 01.08.2017.
+ *         Created by @a on 01.08.2017.
  */
 
 public class Catalog {
@@ -111,19 +114,39 @@ public class Catalog {
         return webElements;
     }
 
+    public ArrayList<String> getCatalogCss() {
+        ArrayList<String> webCssElements = new ArrayList<>();
+        for (int i = 1; i < 25; i++) {
+            String cssSelector = "#accordian > div:nth-child(" + i + ") > div.panel-heading > p > a:nth-child(2)";
+            webCssElements.add(cssSelector);
+        }
+        return webCssElements;
+    }
+
     public void checkCatalogueElementsTitle() {
-        ArrayList <WebElement> checkedWebElements = getCatalogLinks();
+        ArrayList<WebElement> checkedWebElements = getCatalogLinks();
         System.out.println("Start Test...");
         for (WebElement webel : checkedWebElements) {
-            System.out.println(webel+"go");
-            if (webel.isEnabled()){
-                System.out.println(webel.getText()+ " founded");
-            }
-            else System.out.println("no element");
+            System.out.println(webel + "go");
+            if (webel.isEnabled()) {
+                System.out.println(webel.getText() + " founded");
+            } else System.out.println("no element");
+        }
+    }
+
+    public void checkClickOnCatalogLinksTest() {
+        String linkName;
+        ArrayList<String> webElementsClick = getCatalogCss();
+        for (String w : webElementsClick) {
+            new WebDriverWait(webDriver, 30).
+                    until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(w)));
+            webDriver.findElement(By.cssSelector(w)).click();
+            linkName = webDriver.findElement(By.cssSelector(w)).getText();
+            System.out.println("Link validation for < " + linkName + " > is successful!");
         }
     }
 
     // In progress...
-    // Last update 2017.08.02
+    // Last update 2017.08.08
 
 }

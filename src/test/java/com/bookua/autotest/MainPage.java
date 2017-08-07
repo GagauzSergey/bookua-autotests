@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 /**
  * @author Gagauz Sergey
- * Created by user on 26.07.2017.
+ *         Created by user on 26.07.2017.
  */
 public class MainPage {
     WebDriver webDriver;

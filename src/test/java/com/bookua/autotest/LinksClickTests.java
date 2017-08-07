@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
  * @author Gagauz Sergey
- * Created by user on 06.08.2017.
+ *         Created by user on 06.08.2017.
  */
 public class LinksClickTests {
     WebDriver webDriver;
@@ -42,6 +42,11 @@ public class LinksClickTests {
     @Test
     public void checkCatalogueElementsTitleTest() {
         catalog.checkCatalogueElementsTitle();
+    }
+
+    @Test
+    public void checkCatalogLinksEnabled() {
+        catalog.checkClickOnCatalogLinksTest();
     }
 
     @After
