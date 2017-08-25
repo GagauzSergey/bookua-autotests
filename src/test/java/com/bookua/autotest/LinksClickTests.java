@@ -19,7 +19,7 @@ public class LinksClickTests {
 
     @Before
     public void installation() {
-        webDriver = new SetupDriver().SetupDriver();
+        webDriver = new SetupDriver().SetupNewDriver();
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
         catalog = new Catalog(webDriver);

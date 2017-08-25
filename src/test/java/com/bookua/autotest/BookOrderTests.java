@@ -30,7 +30,7 @@ public class BookOrderTests {
 
     @Before
     public void installation() {
-        webDriver = new SetupDriver().SetupDriver();
+        webDriver = new SetupDriver().SetupNewDriver();
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
         catalog = new Catalog(webDriver);
@@ -45,7 +45,7 @@ public class BookOrderTests {
         webDriver.findElement(By.cssSelector
                 ("body > div > div > div.sidebar-right.col-md-2 > div > p:nth-child(1) > a"));
         webDriver.findElement(By.cssSelector("#do_action > div > div > div > a.btn.btn-default.check_out"));
-// in progress...
+// in progress 2017.08.26
 
     }
 

@@ -11,7 +11,7 @@ public class SetupDriver {
 
     WebDriver webDriver;
 
-    public WebDriver SetupDriver (){
+    public WebDriver SetupNewDriver() {
         webDriver = new ChromeDriver();
         System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
         WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30, 500);

@@ -45,5 +45,5 @@ public class CartCheckout {
             "fieldset > div:nth-child(2) > div.col-sm-9 > button")
     WebElement orderSubmit;
 
-
+// in progress 2017.08.26
 }
