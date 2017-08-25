@@ -19,22 +19,18 @@ public class RegistrationTests {
 
     @Before
     public void start (){
-        webDriver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30, 500);
-        webDriver.get("http://books.ua");
+        webDriver = new SetupDriver().SetupDriver();
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
         catalog = new Catalog(webDriver);
     }
 
  @Test
-     public void searchTest() {
+     public void searchTest(String text) {
          System.out.println("Start testing: Test#1");
-         mainPage.searchOnWebSite("Хокинг Стивен");
+         mainPage.searchOnWebSite(text);
          mainPage.clickOnSearchField();
      }
-
 
      @Test
      public void authorizationTestPositive() {

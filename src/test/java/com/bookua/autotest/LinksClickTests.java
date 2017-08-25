@@ -19,10 +19,7 @@ public class LinksClickTests {
 
     @Before
     public void installation() {
-        webDriver = new ChromeDriver();
-        System.setProperty("webdriver.chrome.driver", "C:\\chromedriver_win32\\chromedriver.exe");
-        WebDriverWait webDriverWait = new WebDriverWait(webDriver, 30, 500);
-        webDriver.get("http://books.ua");
+        webDriver = new SetupDriver().SetupDriver();
         mainPage = new MainPage(webDriver);
         loginPage = new LoginPage(webDriver);
         catalog = new Catalog(webDriver);
